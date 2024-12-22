@@ -27,60 +27,98 @@
         </div>
     </header>
 
-    <div class="h-screen bg-[#f33737]">
-        <div class="flex text-white">
-            <div class="p-6 pl-16 mt-32">
-                <h1 class="font-black font-sans text-5xl mb-2">Spread Holiday Cheer <br> with Secret Santa</h1>
-                <p class="font-sans text-[30px]">Organize your gift exchange <br>easily and securely</p>
+    <div class="min-h-screen bg-[#f33737] flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+        <div
+            class="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between space-y-8 lg:space-y-0 lg:space-x-8">
+            <div class="text-white text-center lg:text-left">
+                <h1 class="font-black font-sans text-3xl sm:text-4xl md:text-5xl mb-4 leading-tight">
+                    Spread Holiday Cheer <br class="hidden sm:inline" /> with Secret Santa
+                </h1>
+                <p class="font-sans text-xl sm:text-2xl md:text-3xl">
+                    Organize your gift exchange <br class="hidden sm:inline" /> easily and securely
+                </p>
             </div>
-            <div>
-                <img src="./img/Elf_Img.png" class="h-[449px] w-[441px] ml-40" alt="">
+            <div class="w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[441px]">
+                <Image src="../public/img/Elf_Img.png" alt="Elf Image" width={441} height={449} layout="responsive"
+                    priority />
             </div>
         </div>
     </div>
 
-    <div class="h-[90%] bg-[#D9D9D9]">
-        <div class="container mx-auto">
-            <h1 class="font-black font-sans text-3xl text-center p-5">Why Choose Our Secret Santa App?</h1>
-        </div>
 
-        <div class="bg-[#D9D9D9] p-6">
-            <div class="container">
-                <div class="flex gap-6 pb-4 mx-auto justify-center">
-                    <div class="bg-white p-6 rounded-lg shadow-lg flex-shrink-0 w-full sm:w-80">
-                        <i class="fas fa-lock text-5xl text-[#f33737]"></i>
-                        <h2 class="font-bold text-2xl mt-4">Secure Matching</h2>
-                        <p class="mt-4">Our algorithm ensures fair and random matching while keeping participants' information secure.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg flex-shrink-0 w-full sm:w-80">
-                        <i class="fas fa-regular text-5xl fa-envelope text-[#f33737]"></i>
-                        <h2 class="font-bold text-2xl mt-4">Easy Invitations</h2>
-                        <p class="mt-4">Invite participants via email or share a unique link to join your Secret Santa group.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg flex-shrink-0 w-full sm:w-80">
-                        <i class="fas fa-users text-5xl text-[#f33737]"></i>
-                        <h2 class="font-bold text-2xl mt-4">Wishlist Creation</h2>
-                        <p class="mt-4">Participants can create and share wishlists to make gift-giving easier and more personal.</p>
-                    </div>
+    <div class="bg-[#D9D9D9] py-12 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <h1 class="font-black font-sans text-2xl sm:text-3xl text-center mb-8">
+                Why Choose Our Secret Santa App?
+            </h1>
+
+            <div class="flex flex-col lg:flex-row gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg flex-1">
+                    <i class="fas fa-lock text-4xl sm:text-5xl text-[#f33737]"></i>
+                    <h2 class="font-bold text-xl sm:text-2xl mt-4">Secure Matching</h2>
+                    <p class="mt-4 text-sm sm:text-base">Our algorithm ensures fair and random matching while keeping
+                        participants' information secure.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg flex-1">
+                    <i class="fas fa-envelope text-4xl sm:text-5xl text-[#f33737]"></i>
+                    <h2 class="font-bold text-xl sm:text-2xl mt-4">Easy Invitations</h2>
+                    <p class="mt-4 text-sm sm:text-base">Invite participants via email or share a unique link to join
+                        your Secret Santa group.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg flex-1">
+                    <i class="fas fa-users text-4xl sm:text-5xl text-[#f33737]"></i>
+                    <h2 class="font-bold text-xl sm:text-2xl mt-4">Wishlist Creation</h2>
+                    <p class="mt-4 text-sm sm:text-base">Participants can create and share wishlists to make gift-giving
+                        easier and more personal.</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="h-screen">
-            <div class="container mx-auto bg-white rounded-md">
-                <h1 class="font-black
+    <div class="min-h-screen flex items-center justify-center p-4 bg-[#f33737]">
+        <div class="container w-full max-w-4xl mx-auto bg-white rounded-[20px] shadow-lg overflow-hidden">
+            <div class="flex flex-col lg:flex-row h-full">
+                <div class="flex flex-col p-6 space-y-4 lg:w-1/2">
+                    <h1 class="font-black font-sans text-2xl sm:text-3xl text-left underline mb-4">
+                        Add your friends to a secret gift exchange now!!
+                    </h1>
+                    <!-- Name Input -->
+                    <input id="Name"
+                        class="bg-gray-200 text-black placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#f33737] w-full"
+                        type="text" placeholder="Name" name="name" id="name">
 
+                    <!-- Email Input -->
+                    <input id="Email"
+                        class="bg-gray-200 text-black placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#f33737] w-full"
+                        type="email" placeholder="Email" name="email" id="email">
+
+                    <p id="error-msg" class="text-red-700 font-bold"></p>
+                    <div class="flex flex-col sm:flex-row justify-between gap-4">
+                        <button onclick="addPlayer()"
+                            class="bg-red-500 p-4 w-full sm:w-1/2 text-white hover:border-[2px] hover:border-red-500 hover:rounded-lg hover:bg-transparent hover:duration-300 hover:text-black">
+                            Add Player
+                        </button>
+                        <button onclick="assignName()"
+                            class="border-[2px] border-red-500 p-4 w-full sm:w-1/2 text-black hover:rounded-lg hover:bg-red-500 hover:duration-300 hover:text-white">
+                            Assign Name
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 bg-gray-100 p-6">
+                    <h1 class="font-bold text-xl mb-4">All the players added</h1>
+                    <ul id="playerList" class="space-y-2">
+                        <label for="" id="playerName">Himanshu</label>
+                        <label for="" id="playerEmail">himseervi@gmail.com</label>
+                        <!-- Player list will be populated dynamically -->
+                    </ul>
+                </div>
             </div>
         </div>
-
     </div>
 
 
-    <footer class="bg-red-600 text-white py-4">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Secret Santa App. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script src="app.js"></script>
 

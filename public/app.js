@@ -6,15 +6,16 @@ function addPlayer() {
     let playerEmail = document.getElementById("Email").value
 
     let isDuplicate = checkForDup(playerName, playerEmail);
-    
+
     if (isDuplicate) {
-        console.log("Error: Player with this name or email already exists.");
+        let errorMessage = "Error: Player with this name or email already exists"
+        document.getElementById("error-msg").innerHTML = errorMessage;
         return; // Stop further execution if a duplicate is found
     }
 
 
     if (playerName && playerEmail) {
-        let object = { 
+        let object = {
             name: playerName,
             email: playerEmail
         }
@@ -24,6 +25,7 @@ function addPlayer() {
 
         document.getElementById("Name").value = "";  // Reset the name input
         document.getElementById("Email").value = ""; // Reset the email input
+        printPlayerList();
     }
 }
 
@@ -31,7 +33,7 @@ function checkForDup(name, email) {
     let playerLen = Player.length;
 
     for (let i = 0; i < playerLen; i++) {
-        
+
         if (name === Player[i].name || email === Player[i].email) {
             return true;
         }
@@ -67,4 +69,20 @@ function assignName() {
     }
 
     console.log("Gift assignments completed:", Player);
+}
+
+function printPlayerList() {
+    const playerListContainer = document.getElementById("playerList");
+    playerListContainer.innerHTML = ""; // Clear existing content
+
+    for (let i = 0; i < Player.length; i++) {
+        const playerNameElement = document.createElement("div");
+        playerNameElement.innerHTML = Player[i].name;
+
+        const playerEmailElement = document.createElement("div");
+        playerEmailElement.innerHTML = Player[i].email;
+
+        playerListContainer.appendChild(playerNameElement);
+        playerListContainer.appendChild(playerEmailElement);
+    }
 }
