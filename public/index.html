@@ -17,44 +17,45 @@
 
 </head>
 
-<body>
+<body class="bg-gray-100">
 
-    <div
-        class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
-    </div>
-
-    <header class='flex w-full items-center justify-between gap-4 p-4'>
-        <a href="/">
-            <h1 class='font-press-start text-white'>Elf<span class='text-green-500 bold'>Mail</span></h1>
-        </a>
-        <div class='gap-4 flex items-center '>
-            <a href="/" class='flex items-center gap-2 specialBtn px-3 py-2 rounded-lg text-green-500'>
-                <p>New</p>
-                <i class="fa-solid fa-plus"></i>
+    <header class="bg-[#f33737] text-white shadow-md shadow-black p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="./index.html">
+                <h1 class="text-md font-bold font-press-start">ElfMail</h1>
             </a>
         </div>
     </header>
 
-
-    <main class='flex-1 font-press-start p-4 flex flex-col gap-3 text-center sm:gap-4  justify-center pb-20'>
-        <h1 class=' text-white text-5xl mt-20 max-sm:text-3xl max-sm:mt-10'>Elf<span
-                class='text-green-500 bold'>Mail</span></h1>
-        <h3 class='font-sans text-white md:text-lg'><i class="fa-solid fa-user"></i> Add Participants <span
-                class='text-green-500'>&rarr;</span> <i class="fa-solid fa-newspaper"></i> Draw Names <span
-                class='text-green-500'>&rarr;</span> <i class="fa-solid fa-gift"></i> Exchange Gifts</h3>
-
-                <label class="text-white px-20 my-5" for="title">Spread Holiday Cheer with the Ultimate Secret Santa!</label>
-
-            <div class="p-4 flex flex-col gap-4 items-center">
-                <input id="Name" type="name" placeholder="Enter Name">
-                <input id="Email" type="email" placeholder="Enter Email">
-                <button class="m-7 bg-white" onclick="addPlayer()">asdf</button>
+    <div class="h-screen bg-[#f33737]">
+        <div class="flex text-white">
+            <div class="p-6 pl-16 mt-32">
+                <h1 class="font-black font-sans text-5xl mb-2">Spread Holiday Cheer <br> with Secret Santa</h1>
+                <p class="font-sans text-[30px]">Organize your gift exchange <br>easily and securely</p>
             </div>
-    </main>
+            <div>
+                <img src="./img/Elf_Img.png" class="h-[449px] w-[441px] ml-40" alt="">
+            </div>
+        </div>
+    </div>
 
+    <div class="h-[50vh] bg-[#D9D9D9]">
+        <div class="">
+            <h1 class="font-black font-sans text-3xl text-center p-5">Why Choose Our Secret Santa App?</h1>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+
+
+    <footer class="bg-red-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Secret Santa App. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="app.js"></script>
-
 
 </body>
 
