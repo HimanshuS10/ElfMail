@@ -15,6 +15,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
 </head>
 
 <body class="bg-gray-100">
@@ -108,17 +109,27 @@
                 </div>
                 <div class="lg:w-1/2 bg-gray-100 p-6">
                     <h1 class="font-bold text-xl mb-4">All the players added</h1>
-                    <ul id="playerList" class="space-y-2">
-                        <label for="" id="playerName">Himanshu</label>
-                        <label for="" id="playerEmail">himseervi@gmail.com</label>
-                        <!-- Player list will be populated dynamically -->
-                    </ul>
+                    <div id="playerList">
+                        <button id="editButton"></button>
+                        <button id="deleteButton"></button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "",
+            });
+        })();
+    </script>
 
     <script src="app.js"></script>
 
