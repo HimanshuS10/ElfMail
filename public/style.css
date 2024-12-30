@@ -588,6 +588,10 @@ video {
   }
 }
 
+.static {
+  position: static;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -603,10 +607,6 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.inline-block {
-  display: inline-block;
 }
 
 .flex {

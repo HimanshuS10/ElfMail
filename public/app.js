@@ -1,31 +1,44 @@
+// Define the players
 const Player = [];
 
 const assignedName = [];
 
+/*
+    Add player functions - add the players Name and their 
+    email to an Array.
+*/ 
 function addPlayer() {
+    // get the user input and assigns it to the variable 
     let playerName = document.getElementById("Name").value
     let playerEmail = document.getElementById("Email").value
 
+    // Check if the are repeated Name or Email address
     let isDuplicate = checkForDup(playerName, playerEmail);
 
+    // Print the error message
     if (isDuplicate) {
         let errorMessage = "Error: Player with this name or email already exists"
         document.getElementById("error-msg").innerHTML = errorMessage;
-        return; // Stop further execution if a duplicate is found
+        return; 
     }
 
-
+    // Check if both email and the name exist
     if (playerName && playerEmail) {
+        // Make an object
         let object = {
             name: playerName,
             email: playerEmail
         }
 
+        // Pushes the object to the array called "Player"
         Player.push(object);
-        console.log(Player);
+        // console.log(Player);
+        
+        // When the add player button is click the input will clear
+        document.getElementById("Name").value = ""; 
+        document.getElementById("Email").value = "";
 
-        document.getElementById("Name").value = "";  // Reset the name input
-        document.getElementById("Email").value = ""; // Reset the email input
+        // Calls the print function
         printPlayerList();
     }
 }
@@ -44,30 +57,28 @@ function checkForDup(name, email) {
 
 function assignName() {
     if (Player.length < 2) {
-        console.log("Not enough players to assign gifts.");
+        let errorMessage = "Not enough players to assign gifts"
+        document.getElementById("error-msg").innerHTML = errorMessage;
+
         return;
     }
 
     let indices = Array.from({ length: Player.length }, (_, index) => index);
 
-    // Shuffle the indices
     for (let i = indices.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [indices[i], indices[j]] = [indices[j], indices[i]];
     }
 
-    // Assign each player a random player to gift, ensuring no self-gifting
     for (let i = 0; i < Player.length; i++) {
         const giftIndex = indices[i];
         if (giftIndex === i) {
-            // If self-gifting occurs, reassign the indices array and restart
             return assignName();
         }
         Player[i].playerToGift = Player[giftIndex].name;
         Player[i].playerEmail = Player[giftIndex].email;
     }
 
-    // Send emails to all players
     Player.forEach(giver => {
         sendEmail(giver.name, giver.email, giver.playerToGift);
     });
@@ -78,18 +89,16 @@ function assignName() {
 
 function printPlayerList() {
     const playerListContainer = document.getElementById("playerList");
-    playerListContainer.innerHTML = ""; // Clear existing content
+    playerListContainer.innerHTML = "";
 
     for (let i = 0; i < Player.length; i++) {
         const name = Player[i].name;
         const email = Player[i].email;
 
-        // Create a div for each player
         const playerDiv = document.createElement("div");
         playerDiv.className = "player";
-        playerDiv.style.marginBottom = "20px";  // Space between Player
+        playerDiv.style.marginBottom = "20px"; 
 
-        // Create a div for the name and email
         const playerInfoDiv = document.createElement("div");
         playerInfoDiv.style.display = "flex";
         playerInfoDiv.style.flexDirection = "row"; 
@@ -109,7 +118,6 @@ function printPlayerList() {
         buttonDiv.style.display = "flex";  
         buttonDiv.style.marginTop = "5px"; 
 
-        // Create Edit button
         const editButton = document.createElement("button");
         editButton.style.backgroundColor = "#f33737";  
         editButton.style.padding = "10px";  
@@ -118,7 +126,6 @@ function printPlayerList() {
         editButton.className = "editButton";
         editButton.onclick = () => editPlayer(i);
 
-        // Create Delete button
         const deleteButton = document.createElement("button");
         deleteButton.style.backgroundColor = "#f33737"; 
         deleteButton.style.padding = "10px"; 
