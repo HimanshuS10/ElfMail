@@ -43,6 +43,7 @@ function addPlayer() {
     }
 }
 
+// Function that check for Duplicate names
 function checkForDup(name, email) {
     let playerLen = Player.length;
 
