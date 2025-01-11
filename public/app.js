@@ -6,7 +6,7 @@ const assignedName = [];
 /*
     Add player functions - add the players Name and their 
     email to an Array.
-*/ 
+*/
 function addPlayer() {
     // get the user input and assigns it to the variable 
     let playerName = document.getElementById("Name").value
@@ -19,7 +19,7 @@ function addPlayer() {
     if (isDuplicate) {
         let errorMessage = "Error: Player with this name or email already exists"
         document.getElementById("error-msg").innerHTML = errorMessage;
-        return; 
+        return;
     }
 
     // Check if both email and the name exist
@@ -33,9 +33,9 @@ function addPlayer() {
         // Pushes the object to the array called "Player"
         Player.push(object);
         // console.log(Player);
-        
+
         // When the add player button is click the input will clear
-        document.getElementById("Name").value = ""; 
+        document.getElementById("Name").value = "";
         document.getElementById("Email").value = "";
 
         // Calls the print function
@@ -72,15 +72,21 @@ function assignName() {
         [indices[i], indices[j]] = [indices[j], indices[i]];
     }
 
+    // Loop through each player in the Player array
     for (let i = 0; i < Player.length; i++) {
+        // Get the index of the player to gift from the indices array
         const giftIndex = indices[i];
+
+        // If a player is assigned to gift themselves, reassign names
         if (giftIndex === i) {
             return assignName();
         }
+
+        // Assign the name and email of the player to gift
         Player[i].playerToGift = Player[giftIndex].name;
         Player[i].playerEmail = Player[giftIndex].email;
     }
-
+    
     Player.forEach(giver => {
         sendEmail(giver.name, giver.email, giver.playerToGift);
     });
@@ -99,16 +105,16 @@ function printPlayerList() {
 
         const playerDiv = document.createElement("div");
         playerDiv.className = "player";
-        playerDiv.style.marginBottom = "20px"; 
+        playerDiv.style.marginBottom = "20px";
 
         const playerInfoDiv = document.createElement("div");
         playerInfoDiv.style.display = "flex";
-        playerInfoDiv.style.flexDirection = "row"; 
+        playerInfoDiv.style.flexDirection = "row";
         playerInfoDiv.style.marginBottom = "10px";
 
         const nameLabel = document.createElement("label");
         nameLabel.textContent = `Name: ${name}`;
-        nameLabel.style.marginRight = "10px";  
+        nameLabel.style.marginRight = "10px";
 
         const emailLabel = document.createElement("label");
         emailLabel.textContent = `Email: ${email}`;
@@ -117,20 +123,20 @@ function printPlayerList() {
         playerInfoDiv.appendChild(emailLabel);
 
         const buttonDiv = document.createElement("div");
-        buttonDiv.style.display = "flex";  
-        buttonDiv.style.marginTop = "5px"; 
+        buttonDiv.style.display = "flex";
+        buttonDiv.style.marginTop = "5px";
 
         const editButton = document.createElement("button");
-        editButton.style.backgroundColor = "#f33737";  
-        editButton.style.padding = "10px";  
-        editButton.style.marginRight = "10px";  
+        editButton.style.backgroundColor = "#f33737";
+        editButton.style.padding = "10px";
+        editButton.style.marginRight = "10px";
         editButton.textContent = "Edit";
         editButton.className = "editButton";
         editButton.onclick = () => editPlayer(i);
 
         const deleteButton = document.createElement("button");
-        deleteButton.style.backgroundColor = "#f33737"; 
-        deleteButton.style.padding = "10px"; 
+        deleteButton.style.backgroundColor = "#f33737";
+        deleteButton.style.padding = "10px";
         deleteButton.textContent = "Delete";
         deleteButton.className = "deleteButton";
         deleteButton.onclick = () => deletePlayer(i);
@@ -156,13 +162,13 @@ function editPlayer(index) {
         Player[index].email = newEmail;
     }
 
-    printPlayerList(); 
+    printPlayerList();
 }
 
 function deletePlayer(index) {
     if (confirm("Are you sure you want to delete this player?")) {
-        Player.splice(index, 1); 
-        printPlayerList(); 
+        Player.splice(index, 1);
+        printPlayerList();
     }
 }
 
@@ -172,7 +178,7 @@ function sendEmail(senderName, senderEmail, playerToGift) {
         playerToGift: playerToGift,
         playerToGiftEmail: senderEmail,
     }).then(response => {
-        alert("Success! Emails have been sent to all participants. Check your inbox for your Secret Santa match!");        
+        alert("Success! Emails have been sent to all participants. Check your inbox for your Secret Santa match!");
     }).catch(error => {
         alert("Error sending email please try again or come back later.");
     });
