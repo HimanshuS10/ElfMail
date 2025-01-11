@@ -32,7 +32,6 @@ function addPlayer() {
 
         // Pushes the object to the array called "Player"
         Player.push(object);
-        // console.log(Player);
 
         // When the add player button is click the input will clear
         document.getElementById("Name").value = "";
@@ -86,12 +85,11 @@ function assignName() {
         Player[i].playerToGift = Player[giftIndex].name;
         Player[i].playerEmail = Player[giftIndex].email;
     }
-    
+
     Player.forEach(giver => {
         sendEmail(giver.name, giver.email, giver.playerToGift);
     });
 
-    console.log("Gift assignments completed");
 }
 
 
