@@ -56,6 +56,7 @@ function checkForDup(name, email) {
     return false;
 }
 
+// Function that assigns each player a name
 function assignName() {
     if (Player.length < 2) {
         let errorMessage = "Not enough players to assign gifts"
