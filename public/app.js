@@ -92,7 +92,7 @@ function assignName() {
 
 }
 
-
+// Prints the list of player 
 function printPlayerList() {
     const playerListContainer = document.getElementById("playerList");
     playerListContainer.innerHTML = "";
